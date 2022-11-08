@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const SingleFood = ({ food }) => {
     // console.log(food);
-    const { name, picture, price, details, ratings, } = food;
+    const { name, picture, price, details, ratings, _id } = food;
     return (
         <div className='my-8'>
             <div className="card w-full h-80 bg-base-100 shadow-xl image-full">
@@ -17,7 +17,7 @@ const SingleFood = ({ food }) => {
                     </div>
                     <div className="card-actions justify-end">
                         <button className="btn btn-outline btn-success">Buy Now</button>
-                        <Link to='/itemdetails'><button className="btn btn-outline btn-info">More Details</button></Link>
+                        <Link to={`/itemdetails/${_id}`}><button className="btn btn-outline btn-info">More Details</button></Link>
                     </div>
                 </div>
             </div>

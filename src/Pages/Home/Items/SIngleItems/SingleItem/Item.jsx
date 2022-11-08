@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 const Item = ({ food }) => {
-    const { name, picture, price, details, ratings } = food;
+    const { name, picture, price, details, ratings, _id } = food;
     // console.log(name, price, picture, details);
     return (
         <div className='border border-black rounded-md bg-black'>
@@ -30,7 +30,7 @@ const Item = ({ food }) => {
             </PhotoProvider>
             <div className='flex justify-center gap-4 my-2'>
                 <Link><button className="btn btn-outline btn-success w-40">Buy Now</button></Link>
-                <Link to='/itemdetails'><button className="btn btn-outline btn-info w-40">More Details</button></Link>
+                <Link to={`/itemdetails/${_id}`}><button className="btn btn-outline btn-info w-40">More Details</button></Link>
             </div>
         </div>
     );

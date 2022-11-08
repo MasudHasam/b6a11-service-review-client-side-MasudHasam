@@ -26,8 +26,11 @@ const Router = () => {
                     element: <AllFoods></AllFoods>
                 },
                 {
-                    path: '/itemdetails',
-                    element: <ItemDetails></ItemDetails>
+                    path: '/itemdetails/:id',
+                    element: <ItemDetails></ItemDetails>,
+                    loader: ({ params }) => {
+                        return fetch(`http://localhost:5000/foods/${params.id}`);
+                    }
                 }
             ]
         }
