@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Main from '../Layout/Main';
 import AllFoods from '../Pages/AllFoods/AllFood/AllFoods'
 import Home from '../Pages/Home/Home/Home';
+import ItemDetails from '../Pages/Home/Items/SIngleItems/ItemDetsils/ItemDetails';
 
 
 const Router = () => {
@@ -23,6 +24,10 @@ const Router = () => {
                 {
                     path: '/allfoods',
                     element: <AllFoods></AllFoods>
+                },
+                {
+                    path: '/itemdetails',
+                    element: <ItemDetails></ItemDetails>
                 }
             ]
         }

@@ -1,52 +1,37 @@
 import React from 'react';
 import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import { Link } from 'react-router-dom';
 
 
-const Item = () => {
+const Item = ({ food }) => {
+    const { name, picture, price, details, ratings } = food;
+    // console.log(name, price, picture, details);
     return (
-        <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
+        <div className='border border-black rounded-md bg-black'>
             {/* <ItemDetails></ItemDetails> */}
-
-
             <PhotoProvider>
-                <PhotoView className='className="hero min-h-screen"' src="https://images.unsplash.com/photo-1625398407796-82650a8c135f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8aW5kaWFuJTIwZm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60">
-                    <div className="hero min-h-screen" style={{ backgroundImage: `url("https://images.unsplash.com/photo-1625398407796-82650a8c135f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8aW5kaWFuJTIwZm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60")` }}>
+                <PhotoView className='className="hero min-h-screen"' src={picture}>
+                    <div className="hero min-h-screen" style={{ backgroundImage: `url(${picture})` }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
-                                <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                                <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                                <button className="btn btn-outline btn-warning">More Details</button>
+                                <h1 className="mb-5 text-4xl font-bold">{name}</h1>
+                                <p className="mb-5">{details.slice(0, 100)}...</p>
+                                <div className='flex justify-center gap-2'>
+                                    <p className='my-4 font-extrabold'>Price: ${price}</p>
+                                    <p className='my-4 font-extrabold text-orange-300'>Ratings: {ratings}</p>
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </PhotoView>
             </PhotoProvider>
-
-
-
-            <div className="hero min-h-screen" style={{ backgroundImage: `url("https://images.unsplash.com/photo-1625398407796-82650a8c135f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8aW5kaWFuJTIwZm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60")` }}>
-                <div className="hero-overlay bg-opacity-60"></div>
-                <div className="hero-content text-center text-neutral-content">
-                    <div className="max-w-md">
-                        <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                        <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                        <button className="btn btn-outline btn-warning">More Details</button>
-                    </div>
-                </div>
+            <div className='flex justify-center gap-4 my-2'>
+                <Link><button className="btn btn-outline btn-success w-40">Buy Now</button></Link>
+                <Link to='/itemdetails'><button className="btn btn-outline btn-info w-40">More Details</button></Link>
             </div>
-            <div className="hero min-h-screen" style={{ backgroundImage: `url("https://images.unsplash.com/photo-1625398407796-82650a8c135f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8aW5kaWFuJTIwZm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60")` }}>
-                <div className="hero-overlay bg-opacity-60"></div>
-                <div className="hero-content text-center text-neutral-content">
-                    <div className="max-w-md">
-                        <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                        <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                        <button className="btn btn-outline btn-warning">More Details</button>
-                    </div>
-                </div>
-            </div>
-
         </div>
     );
 };
