@@ -6,7 +6,7 @@ import Main from '../Layout/Main';
 import AllFoods from '../Pages/AllFoods/AllFood/AllFoods'
 import Home from '../Pages/Home/Home/Home';
 import ItemDetails from '../Pages/Home/Items/SIngleItems/ItemDetsils/ItemDetails';
-import MyReviews from '../Pages/MyReviews/MyReviews';
+import MyReviews from '../Pages/MyReviews/MyReviews/MyReviews'
 import ProtectedRout from '../ProtectedRout/ProtectedRout';
 
 
