@@ -1,12 +1,64 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { useLoaderData, useLocation } from 'react-router-dom';
 import { StarIcon } from '@heroicons/react/24/solid';
 import { Link } from 'react-router-dom';
 import Reviews from '../../Reviews/Reviews';
+import { AuthContext } from '../../../../../AuthProvider/AuthProvider';
 
 const ItemDetails = () => {
-    const data = useLoaderData()
-    const { name, price, details, ratings, address, email, phone, picture } = data;
+    const { user } = useContext(AuthContext);
+    const data = useLoaderData();
+    const { name, price, details, ratings, address, email, phone, picture, _id } = data;
+    const location = useLocation();
+    const [reviews, setReviews] = useState();
+
+
+    const getReviewData = (event) => {
+        event.preventDefault();
+
+        const form = event.target;
+        const userName = form.name.value;
+        const url = form.url.value;
+        const details = form.details.value
+        const userMail = user?.email;
+        const review = {
+            name: userName,
+            serviceName: name,
+            picture: url,
+            details,
+            fid: _id,
+            userMail
+        }
+
+        fetch('http://localhost:5000/reviews', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(review),
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
+        form.reset()
+
+    };
+
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/reviews/${_id}`, {
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data);
+                setReviews(data)
+            });
+    }, [reviews])
+
+
+
+
     return (
         <div>
             <h1 className='text-center font-extrabold text-5xl my-6 text-slate-500'>All Details About <span className='text-green-500'>{name}</span></h1>
@@ -69,24 +121,34 @@ const ItemDetails = () => {
                 {/* thsi is review area */}
                 <div className='my-2'>
                     <h1 className='font-bold'>All Reviews:</h1>
-                    <Reviews></Reviews>
+                    {
+                        reviews?.map(review => <Reviews key={review._id} review={review}></Reviews>)
+                    }
                 </div>
             </div>
             <div className='text-black bg-gray-400 h-0.5'>
             </div>
-            <div className='mt-5'>
-                <h1 className='text-xl font -bold text-slate-500'>Submit Your Review Hear</h1>
-                <form className='mt-3'>
-                    <div className=' mb-1'>
-                        <input className='mr-2 px-4 rounded-lg' type="text" name='name' placeholder='enter your name' required />
-                        <input className=' px-4 rounded-lg ' type="text" name="ulr" id="" placeholder='enter you photo url' required />
+            {
+                user?.email ?
+                    <div className='mt-5'>
+                        <h1 className='text-xl font -bold text-slate-500'>Submit Your Review Hear</h1>
+                        <form onSubmit={getReviewData} className='mt-3'>
+                            <div className=' mb-2'>
+                                <input className='mr-2 px-4 rounded-lg mb-2' type="text" name='name' placeholder='enter your name' required />
+                                <input className=' px-4 rounded-lg ' type="text" name="url" id="" placeholder='enter you photo url' required />
+                            </div>
+                            <div>
+                                <textarea className='px-4 py-2 rounded-lg w-11/12' name="details" id="" cols="60" rows="4" placeholder='type your review hear'></textarea>
+                            </div>
+                            <button className='btn btn-outline'>Submit</button>
+                        </form>
                     </div>
-                    <div>
-                        <textarea className='px-4 py-2 rounded-lg' name="details" id="" cols="60" rows="4" placeholder='type your review hear' required></textarea>
+                    :
+                    <div className='mt-2'>
+                        <h1 className='mb-2'>Please Log in to Add your own review</h1>
+                        <Link to='/signin' state={{ from: location }} replace className='btn'>Login</Link>
                     </div>
-                    <Link><button className='btn btn-outline'>Submit</button></Link>
-                </form>
-            </div>
+            }
         </div>
     );
 };

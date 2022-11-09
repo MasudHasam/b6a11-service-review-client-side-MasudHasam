@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../Assets/clodkitchen.png'
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 
 const Navbar = () => {
+    const { user, logOut, loading } = useContext(AuthContext);
+
+    // if (loading) {
+    //     return <div>Loading...</div>
+    // }
+
+    const handelLogOut = () => {
+        logOut()
+            .then(result => {
+                const user = result.user;
+                // console.log(user);
+            })
+            .catch(error => console.log(error))
+    }
 
     const menue = <div className='flex flex-col lg:flex-row gap-2'>
         <Link className='btn btn-outline btn-info' to='/home'>Home</Link>
@@ -39,26 +54,33 @@ const Navbar = () => {
 
 
             <div className="navbar-end">
-                <div className="dropdown dropdown-end ">
-                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full lg:mr-5">
-                            <img src="https://placeimg.com/80/80/people" alt='' />
+
+
+                {
+                    user?.email || user?.name ?
+                        <div className="dropdown dropdown-end ">
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full lg:mr-5">
+                                    <img src={user?.photoURL} alt='' />
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-slate-500 rounded-box w-52">
+                                <li>
+                                    <Link className="justify-between">
+                                        Add Services
+                                        <span className="badge">New</span>
+                                    </Link>
+                                </li>
+                                <li><Link to='/myreviews'>My Reviews</Link></li>
+                                <li ><Link onClick={handelLogOut}>Logout</Link></li>
+                            </ul>
                         </div>
-                    </label>
-                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                        <li>
-                            <Link className="justify-between">
-                                Profile
-                                <span className="badge">New</span>
-                            </Link>
-                        </li>
-                        <li><Link>Settings</Link></li>
-                        <li><Link>Logout</Link></li>
-                    </ul>
-                </div>
-                <div className=''>
-                    <Link to='/signin' className='btn btn-outline btn-info'>Sign In</Link>
-                </div>
+                        :
+
+                        <div className=''>
+                            <Link to='/signin' className='btn btn-outline btn-info'>Sign In</Link>
+                        </div>
+                }
             </div>
         </div>
     );

@@ -6,6 +6,8 @@ import Main from '../Layout/Main';
 import AllFoods from '../Pages/AllFoods/AllFood/AllFoods'
 import Home from '../Pages/Home/Home/Home';
 import ItemDetails from '../Pages/Home/Items/SIngleItems/ItemDetsils/ItemDetails';
+import MyReviews from '../Pages/MyReviews/MyReviews';
+import ProtectedRout from '../ProtectedRout/ProtectedRout';
 
 
 const Router = () => {
@@ -42,6 +44,10 @@ const Router = () => {
                 {
                     path: '/signup',
                     element: <SignUp></SignUp>
+                },
+                {
+                    path: '/myreviews',
+                    element: <ProtectedRout><MyReviews></MyReviews></ProtectedRout>
                 }
             ]
         }

@@ -24,7 +24,7 @@ const AllFoods = () => {
     return (
         <div className='my-10'>
             <h1 className='text-center my-4 font-bold italic text-2xl underline underline-offset-8 text-orange-700'>All Available Foods</h1>
-            <div className='my-10'>
+            <div className=''>
                 {
                     foods?.map(food => <SingleFood key={food._id} food={food}></SingleFood>)
                 }

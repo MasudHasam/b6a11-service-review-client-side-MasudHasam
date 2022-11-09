@@ -5,7 +5,7 @@ const SingleFood = ({ food }) => {
     // console.log(food);
     const { name, picture, price, details, ratings, _id } = food;
     return (
-        <div className='my-8'>
+        <div className='mb-28 lg:mb-5'>
             <div className="card w-full h-80 bg-base-100 shadow-xl image-full">
                 <figure><img className='w-full' src={picture} alt="Shoes" /></figure>
                 <div className="card-body">
