@@ -1,5 +1,7 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Login from '../Authentication/Login/Login';
+import SignUp from '../Authentication/SignUp/SignUp';
 import Main from '../Layout/Main';
 import AllFoods from '../Pages/AllFoods/AllFood/AllFoods'
 import Home from '../Pages/Home/Home/Home';
@@ -32,6 +34,14 @@ const Router = () => {
                     loader: ({ params }) => {
                         return fetch(`http://localhost:5000/foods/${params.id}`);
                     }
+                },
+                {
+                    path: '/signin',
+                    element: <Login></Login>
+                },
+                {
+                    path: '/signup',
+                    element: <SignUp></SignUp>
                 }
             ]
         }

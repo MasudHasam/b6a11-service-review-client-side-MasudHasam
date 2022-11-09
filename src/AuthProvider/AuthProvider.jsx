@@ -6,6 +6,9 @@ export const AuthContext = createContext();
 const Auth = getAuth(app)
 
 const AuthProvider = ({ children }) => {
+
+
+
     const info = {
         name: 'masud'
     }
