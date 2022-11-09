@@ -35,6 +35,9 @@ const Navbar = () => {
 
                 </ul>
             </div>
+
+
+
             <div className="navbar-end">
                 <div className="dropdown dropdown-end ">
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -52,6 +55,9 @@ const Navbar = () => {
                         <li><Link>Settings</Link></li>
                         <li><Link>Logout</Link></li>
                     </ul>
+                </div>
+                <div className=''>
+                    <Link to='/signin' className='btn btn-outline btn-info'>Sign In</Link>
                 </div>
             </div>
         </div>

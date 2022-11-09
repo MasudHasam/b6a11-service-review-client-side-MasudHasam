@@ -1,4 +1,3 @@
-import React from 'react';
 import ConsumerFavoriteItems from '../AllConsumerFavoriteItems/ConsumerFavoriteItems/ConsumerFavoriteItems';
 import Header from '../Header/Header'
 import Allitems from '../Items/Allitems/Allitems';
