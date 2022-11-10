@@ -9,6 +9,7 @@ import Additems from '../Pages/Home/AllConsumerFavoriteItems/Additems/Additems';
 import Home from '../Pages/Home/Home/Home';
 import ItemDetails from '../Pages/Home/Items/SIngleItems/ItemDetsils/ItemDetails';
 import MyReviews from '../Pages/MyReviews/MyReviews/MyReviews'
+import Update from '../Pages/MyReviews/Update/Update';
 import ProtectedRout from '../ProtectedRout/ProtectedRout';
 
 
@@ -58,6 +59,13 @@ const Router = () => {
                 {
                     path: '/blogs',
                     element: <Blogs></Blogs>
+                },
+                {
+                    path: '/update/:id',
+                    element: <Update></Update>,
+                    loader: ({ params }) => {
+                        return fetch(`http://localhost:5000/rvw/${params.id}`)
+                    }
                 }
             ]
         }

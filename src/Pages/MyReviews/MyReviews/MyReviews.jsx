@@ -44,7 +44,7 @@ const MyReviews = () => {
             <h1 className='text-3xl text-center'>All Your Review is hear</h1>
             {
                 review?.[0]?.name ?
-                    review?.map(rvw => <MySingleR key={rvw._id} rvw={rvw} hadelDelete={hadelDelete} ></MySingleR>)
+                    review?.map(rvw => <MySingleR key={rvw._id} rvw={rvw} hadelDelete={hadelDelete}></MySingleR>)
                     :
                     <div className='my-10 text-center text-xl lg:text-6xl font-bold'>No reviews you added</div>
             }

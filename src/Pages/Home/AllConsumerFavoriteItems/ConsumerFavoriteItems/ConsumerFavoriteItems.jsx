@@ -5,7 +5,7 @@ import { AuthContext } from '../../../../AuthProvider/AuthProvider';
 
 
 const ConsumerFavoriteItems = () => {
-    const { topfood, setTopFood, setCount, count } = useContext(AuthContext);
+    const { topfood, setTopFood, setCount, count, user } = useContext(AuthContext);
     const location = useLocation();
 
     useEffect(() => {
@@ -40,7 +40,12 @@ const ConsumerFavoriteItems = () => {
                 </svg>
             </div>
 
-            <Link to='/additems' state={{ from: location }} replace><button className='btn btn-outline btn-error w-full mt-4 font-bold'>Add Your Favorite Food Now</button></Link>
+            {
+                user ? <Link to='/additems' state={{ from: location }} replace><button className='btn btn-outline btn-error w-full mt-4 font-bold'>Add Your Favorite Food Now</button></Link>
+                    :
+                    <></>
+            }
+
         </div>
     );
 };

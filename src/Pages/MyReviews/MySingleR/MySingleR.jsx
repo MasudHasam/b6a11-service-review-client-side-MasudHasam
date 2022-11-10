@@ -1,11 +1,14 @@
 import React from 'react';
 import toast, { Toaster } from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 
 const deletedToast = () => toast('Deleted SuccessFully');
 
 const MySingleR = ({ rvw, hadelDelete }) => {
     const { name, serviceName, picture, userMail, details, _id } = rvw;
+    // console.log(_id);
+
 
     return (
         <div className="card w-full h-80 bg-base-100 shadow-xl">
@@ -18,8 +21,7 @@ const MySingleR = ({ rvw, hadelDelete }) => {
                 <p>{details}</p>
                 <div className="card-actions">
                     <div>
-                        <button className="btn btn-success">Update</button>
-                        <Toaster />
+                        <Link to={`/update/${_id}`}><button className='btn btn-info'>Edit Review</button></Link>
                     </div>
                     <div onClick={deletedToast}>
                         <button onClick={() => hadelDelete(_id)} className="btn btn-warning">Delete</button>

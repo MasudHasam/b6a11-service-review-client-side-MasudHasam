@@ -66,8 +66,8 @@ const Navbar = () => {
                             </label>
                             <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-slate-500 rounded-box w-52">
                                 <li>
-                                    <Link className="justify-between">
-                                        Add Services
+                                    <Link to='/additems' className="justify-between">
+                                        Add Items
                                         <span className="badge">New</span>
                                     </Link>
                                 </li>
