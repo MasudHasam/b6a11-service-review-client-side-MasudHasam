@@ -1,5 +1,5 @@
 Site Name: Hngry Chef,
-Live Site Link: https://hungry-chef-6caef.web.app/home
+Live Site Link: https://hungry-chef-6caef.web.app
 Features:
 .I use mongodb database in this site
 .i use firebase varification in this site
