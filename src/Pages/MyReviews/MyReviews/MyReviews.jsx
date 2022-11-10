@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
+import TitleHooks from '../../../TitleHooks/TitleHooks';
 import MySingleR from '../MySingleR/MySingleR';
 
 const MyReviews = () => {
+    TitleHooks('reviews')
     const { user, loading } = useContext(AuthContext);
     const [review, setReview] = useState();
     const email = user?.email

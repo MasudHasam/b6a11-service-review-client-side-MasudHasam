@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import TitleHooks from '../../../TitleHooks/TitleHooks';
 import SingleFood from '../SingleFood/SingleFood';
 
 const AllFoods = () => {
-
+    TitleHooks('all-foods')
     const [foods, setFoods] = useState();
 
     const limit = { limit: '6' }

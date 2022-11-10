@@ -2,6 +2,7 @@ import React from 'react';
 import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link } from 'react-router-dom';
+import TitleHooks from '../../../../../TitleHooks/TitleHooks';
 
 
 const Item = ({ food }) => {

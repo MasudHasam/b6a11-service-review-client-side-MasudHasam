@@ -23,11 +23,16 @@ const ConsumerFavoriteItems = () => {
         <div className='my-20'>
             <h1 className='text-center my-4 font-bold italic text-2xl underline underline-offset-8 text-slate-500'>TOP 3 MOST Favorite Items</h1>
 
-            <div className='grid grid-cols-1 lg:grid-cols-5 gap-4 w-11/12 mx-auto'>
-                {
-                    topfood?.map(food => <CFsingleItems key={food._id} food={food} ></CFsingleItems>)
-                }
-            </div>
+            {
+                !topfood ? <progress className="progress w-full"></progress> :
+                    <div className='grid grid-cols-1 lg:grid-cols-5 gap-4 w-11/12 mx-auto'>
+                        {
+                            topfood?.map(food => <CFsingleItems key={food._id} food={food} ></CFsingleItems>)
+                        }
+                    </div>
+            }
+
+
 
             <div className='flex justify-center mt-5'>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">

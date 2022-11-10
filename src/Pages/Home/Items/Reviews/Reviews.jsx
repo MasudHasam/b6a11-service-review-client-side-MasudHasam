@@ -1,9 +1,11 @@
 import React from 'react';
 import { StarIcon } from '@heroicons/react/24/solid'
+import TitleHooks from '../../../../TitleHooks/TitleHooks';
 
 
 const Reviews = ({ review }) => {
     // console.log(review);
+    TitleHooks('items-details')
     const { picture, name, ratings, details } = review;
     return (
         <div>

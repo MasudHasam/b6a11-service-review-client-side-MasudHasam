@@ -2,11 +2,13 @@ import React, { useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../AuthProvider/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
+import TitleHooks from '../../../../TitleHooks/TitleHooks';
 
 
 const addedToast = () => toast('Item Added SuccessFully');
 
 const Additems = () => {
+    TitleHooks('add-items')
     const { count, setCount } = useContext(AuthContext)
     const location = useLocation();
     const navigate = useNavigate();

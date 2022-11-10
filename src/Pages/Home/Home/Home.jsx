@@ -1,9 +1,11 @@
+import TitleHooks from '../../../TitleHooks/TitleHooks';
 import ConsumerFavoriteItems from '../AllConsumerFavoriteItems/ConsumerFavoriteItems/ConsumerFavoriteItems';
 import Header from '../Header/Header'
 import Allitems from '../Items/Allitems/Allitems';
 import UsesTechnology from '../UsesTechnology/UsesTechnology';
 
 const Home = () => {
+    TitleHooks('home')
     return (
         <div>
             <h1 className='text-center my-4 font-bold italic text-2xl underline underline-offset-8 text-orange-700'>Welcome To Hungry Chef</h1>
