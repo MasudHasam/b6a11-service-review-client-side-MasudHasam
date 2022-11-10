@@ -4,6 +4,7 @@ import Login from '../Authentication/Login/Login';
 import SignUp from '../Authentication/SignUp/SignUp';
 import Main from '../Layout/Main';
 import AllFoods from '../Pages/AllFoods/AllFood/AllFoods'
+import Blogs from '../Pages/Blogs/Blogs';
 import Additems from '../Pages/Home/AllConsumerFavoriteItems/Additems/Additems';
 import Home from '../Pages/Home/Home/Home';
 import ItemDetails from '../Pages/Home/Items/SIngleItems/ItemDetsils/ItemDetails';
@@ -53,6 +54,10 @@ const Router = () => {
                 {
                     path: '/additems',
                     element: <ProtectedRout><Additems></Additems></ProtectedRout>
+                },
+                {
+                    path: '/blogs',
+                    element: <Blogs></Blogs>
                 }
             ]
         }

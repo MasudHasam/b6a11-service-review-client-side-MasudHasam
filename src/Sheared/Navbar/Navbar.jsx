@@ -23,7 +23,7 @@ const Navbar = () => {
     const menue = <div className='flex flex-col lg:flex-row gap-2'>
         <Link className='btn btn-outline btn-info' to='/home'>Home</Link>
         <Link className='btn btn-outline btn-info' to='/allfoods'>Food Items</Link>
-        <Link className='btn btn-outline btn-info'>About</Link>
+        <Link className='btn btn-outline btn-info' to='/blogs'>Blogs</Link>
     </div>
 
     return (
