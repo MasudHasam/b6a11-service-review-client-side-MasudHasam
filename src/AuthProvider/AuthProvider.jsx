@@ -9,6 +9,8 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState();
     const [loading, setLoading] = useState(true);
+    const [topfood, setTopFood] = useState();
+    const [count, setCount] = useState();
 
     //this function is for sign up / register
     const register = (email, password) => {
@@ -51,6 +53,8 @@ const AuthProvider = ({ children }) => {
         googleLogin,
         logOut,
         user, loading,
+        setTopFood, topfood,
+        setCount, count
     }
     return (
         <AuthContext.Provider value={info}>
