@@ -1,10 +1,11 @@
 import React from 'react';
+import toast, { Toaster } from 'react-hot-toast';
+
+
+const deletedToast = () => toast('Deleted SuccessFully');
 
 const MySingleR = ({ rvw, hadelDelete }) => {
     const { name, serviceName, picture, userMail, details, _id } = rvw;
-
-
-
 
     return (
         <div className="card w-full h-80 bg-base-100 shadow-xl">
@@ -16,8 +17,14 @@ const MySingleR = ({ rvw, hadelDelete }) => {
                 <h2 className="card-title">{serviceName}</h2>
                 <p>{details}</p>
                 <div className="card-actions">
-                    <button className="btn btn-primary">Update</button>
-                    <button onClick={() => hadelDelete(_id)} className="btn btn-warning">Delete</button>
+                    <div>
+                        <button className="btn btn-success">Update</button>
+                        <Toaster />
+                    </div>
+                    <div onClick={deletedToast}>
+                        <button onClick={() => hadelDelete(_id)} className="btn btn-warning">Delete</button>
+                        <Toaster />
+                    </div>
                 </div>
             </div>
         </div>

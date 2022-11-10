@@ -17,7 +17,6 @@ const ConsumerFavoriteItems = () => {
                 setTopFood(data?.result);
             })
     }, [setTopFood])
-    console.log(count);
 
 
     return (

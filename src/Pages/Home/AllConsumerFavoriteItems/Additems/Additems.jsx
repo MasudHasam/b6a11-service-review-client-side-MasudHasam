@@ -1,7 +1,10 @@
 import React, { useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../AuthProvider/AuthProvider';
+import toast, { Toaster } from 'react-hot-toast';
 
+
+const addedToast = () => toast('Item Added SuccessFully');
 
 const Additems = () => {
     const { count, setCount } = useContext(AuthContext)
@@ -38,7 +41,8 @@ const Additems = () => {
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
-                navigate(from, { replace: true })
+                // navigate(from, { replace: true })
+                form.reset()
             })
 
 
@@ -78,8 +82,9 @@ const Additems = () => {
                                     <input type="text" name='details' required placeholder="details" className="input input-bordered" />
                                 </div>
                             </div>
-                            <div className="form-control mt-6">
+                            <div onClick={addedToast} className="form-control mt-6">
                                 <button className="btn btn-outline btn-primary">ADD </button>
+                                <Toaster></Toaster>
                             </div>
                         </form>
                     </div>
