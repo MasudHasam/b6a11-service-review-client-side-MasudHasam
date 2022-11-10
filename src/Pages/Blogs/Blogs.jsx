@@ -2,7 +2,10 @@ import React from 'react';
 import TitleHooks from '../../TitleHooks/TitleHooks';
 
 const Blogs = () => {
+
+    //this conde is for dynamic title
     TitleHooks('blogs')
+
     return (
         <div className='my-10 '>
             <h1 className='text-3xl font-bold my-4'>Some important Question and answer.</h1>
