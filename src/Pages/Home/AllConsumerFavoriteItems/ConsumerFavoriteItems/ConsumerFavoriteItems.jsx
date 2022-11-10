@@ -9,7 +9,7 @@ const ConsumerFavoriteItems = () => {
     const location = useLocation();
 
     useEffect(() => {
-        fetch('http://localhost:5000/topfood')
+        fetch('https://b6a11-service-review-server-mu.vercel.app/topfood')
             .then(res => res.json())
             .then(data => {
                 setCount(data.count);

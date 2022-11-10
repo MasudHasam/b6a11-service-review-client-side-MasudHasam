@@ -33,7 +33,7 @@ const Additems = () => {
         }
 
 
-        fetch('http://localhost:5000/topfood', {
+        fetch('https://b6a11-service-review-server-mu.vercel.app/topfood', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -56,7 +56,7 @@ const Additems = () => {
                 <div className="hero-content">
                     <div className="card  shadow-2xl">
                         <form onSubmit={handelAddItems} className="card-body">
-                            <div className='flex gap-2'>
+                            <div className='flex flex-col lg:flex-row gap-2 '>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Name</span>
@@ -70,7 +70,7 @@ const Additems = () => {
                                     <input type="text" name='photo' required placeholder="input a photo link" className="input input-bordered" />
                                 </div>
                             </div>
-                            <div className='flex gap-2'>
+                            <div className='flex flex-col lg:flex-row gap-2'>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Ratings</span>

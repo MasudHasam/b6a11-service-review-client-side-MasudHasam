@@ -37,7 +37,7 @@ const Router = () => {
                     path: '/itemdetails/:id',
                     element: <ItemDetails></ItemDetails>,
                     loader: ({ params }) => {
-                        return fetch(`http://localhost:5000/foods/${params.id}`);
+                        return fetch(`https://b6a11-service-review-server-mu.vercel.app/foods/${params.id}`);
                     }
                 },
                 {
@@ -64,7 +64,7 @@ const Router = () => {
                     path: '/update/:id',
                     element: <Update></Update>,
                     loader: ({ params }) => {
-                        return fetch(`http://localhost:5000/rvw/${params.id}`)
+                        return fetch(`https://b6a11-service-review-server-mu.vercel.app/rvw/${params.id}`)
                     }
                 }
             ]

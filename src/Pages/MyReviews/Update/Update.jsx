@@ -1,5 +1,10 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
+
+
+const updatedToast = () => toast('Updated SuccessFully');
+
 
 const Update = () => {
     const data = useLoaderData();
@@ -8,8 +13,6 @@ const Update = () => {
 
     const updateReview = (event) => {
         event.preventDefault();
-        console.log(_id);
-        console.log('clicked');
         const form = event.target;
         const name = form.name.value;
         const serviceName = form.serviceName.value;
@@ -24,10 +27,9 @@ const Update = () => {
             _id
         }
 
-        console.log(reviewInfo);
 
 
-        fetch(`http://localhost:5000/updateReview/${_id}`, {
+        fetch(`https://b6a11-service-review-server-mu.vercel.app/updateReview/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -38,7 +40,6 @@ const Update = () => {
             .then(data => {
                 console.log(data);
                 if (data.modifiedCoutn > 0) {
-                    alert('review updated')
                     event.target.reset();
                 }
             });
@@ -79,8 +80,9 @@ const Update = () => {
                                     <input type="text" name='details' defaultValue={details} required placeholder="details" className="input input-bordered" />
                                 </div>
                             </div>
-                            <div className="form-control mt-6">
+                            <div onClick={updatedToast} className="form-control mt-6">
                                 <button className="btn btn-outline btn-primary">Update </button>
+                                <Toaster></Toaster>
                             </div>
                         </form>
                     </div>

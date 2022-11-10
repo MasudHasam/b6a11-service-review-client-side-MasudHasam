@@ -12,7 +12,7 @@ const MyReviews = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/review/${email}`)
+        fetch(`https://b6a11-service-review-server-mu.vercel.app/review/${email}`)
             .then(res => res.json())
             .then(data => {
                 setReview(data)
@@ -23,7 +23,7 @@ const MyReviews = () => {
     const hadelDelete = (id) => {
         const proced = window.confirm('Are you sure you want to delete this item')
         if (proced) {
-            fetch(`http://localhost:5000/reviewItems/${id}`, {
+            fetch(`https://b6a11-service-review-server-mu.vercel.app/reviewItems/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

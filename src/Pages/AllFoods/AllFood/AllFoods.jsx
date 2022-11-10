@@ -8,7 +8,7 @@ const AllFoods = () => {
 
     const limit = { limit: '6' }
     useEffect(() => {
-        fetch('http://localhost:5000/foods', {
+        fetch('https://b6a11-service-review-server-mu.vercel.app/foods', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
