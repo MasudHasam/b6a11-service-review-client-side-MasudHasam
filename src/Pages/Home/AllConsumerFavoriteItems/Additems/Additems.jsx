@@ -14,7 +14,7 @@ const Additems = () => {
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
 
-
+    //this function is for handel add new food items in the home page and short is also
     const handelAddItems = (event) => {
         event.preventDefault();
         const form = event.target;

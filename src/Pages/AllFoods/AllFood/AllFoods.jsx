@@ -6,7 +6,9 @@ const AllFoods = () => {
     TitleHooks('all-foods')
     const [foods, setFoods] = useState();
 
+    //this code is for set limit to load data.
     const limit = { limit: '6' }
+
     useEffect(() => {
         fetch('https://b6a11-service-review-server-mu.vercel.app/foods', {
             method: 'POST',

@@ -2,7 +2,7 @@ import React from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 
-
+//this is toast function
 const deletedToast = () => toast('Deleted SuccessFully');
 
 const MySingleR = ({ rvw, hadelDelete }) => {

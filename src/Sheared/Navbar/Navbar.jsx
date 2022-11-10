@@ -20,6 +20,7 @@ const Navbar = () => {
             .catch(error => console.log(error))
     }
 
+    //all navigation manue
     const menue = <div className='flex flex-col lg:flex-row gap-2'>
         <Link className='btn btn-outline btn-info' to='/home'>Home</Link>
         <Link className='btn btn-outline btn-info' to='/allfoods'>Food Items</Link>

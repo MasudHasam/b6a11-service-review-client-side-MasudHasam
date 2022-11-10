@@ -20,6 +20,7 @@ const MyReviews = () => {
     }, [])
 
 
+    //this function is for delete
     const hadelDelete = (id) => {
         const proced = window.confirm('Are you sure you want to delete this item')
         if (proced) {

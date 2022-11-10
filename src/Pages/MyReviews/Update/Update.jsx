@@ -11,6 +11,7 @@ const Update = () => {
     const { name, picture, details, serviceName, _id } = data;
 
 
+    //this function is for update review.
     const updateReview = (event) => {
         event.preventDefault();
         const form = event.target;
