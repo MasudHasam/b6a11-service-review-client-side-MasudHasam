@@ -69,7 +69,7 @@ const Navbar = () => {
                                 <li>
                                     <Link to='/additems' className="justify-between">
                                         Add Items
-                                        <span className="badge">new</span>
+                                        <span className="badge">New</span>
                                     </Link>
                                 </li>
                                 <li><Link to='/myreviews'>My Reviews</Link></li>
